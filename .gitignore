@@ -43,3 +43,5 @@ phpunit-watcher.yml
 test/storybook-playwright/test-results
 test/storybook-playwright/specs/__snapshots__
 test/storybook-playwright/specs/*-snapshots/**
+
+.direnv

@@ -4,13 +4,14 @@
 import os from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig, devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
 
 const STORAGE_STATE_PATH =
 	process.env.STORAGE_STATE_PATH ||
 	path.join( process.cwd(), 'artifacts/storage-states/admin.json' );
 
-const config = defineConfig( {
+const config: PlaywrightTestConfig = {
 	reporter: process.env.CI
 		? [ [ 'github' ], [ './config/flaky-tests-reporter.ts' ] ]
 		: 'list',
@@ -82,6 +83,6 @@ const config = defineConfig( {
 			grepInvert: /-firefox/,
 		},
 	],
-} );
+};
 
 export default config;
